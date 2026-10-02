@@ -1,0 +1,12 @@
+<?php
+
+
+
+
+
+define('TRACKER_INGEST_TOKEN', 'a292e0f5ae75416619b12327ff8f11e4507292400101f018');
+
+
+
+
+define('TRACKER_INGEST_ALLOWED_IPS', ['127.0.0.1', '::1']);
