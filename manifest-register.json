@@ -1,0 +1,16 @@
+{
+  "name": "BantayDagat — Fisherfolk Registration",
+  "short_name": "BD Register",
+  "description": "Field registration for fisherfolk and vessels, with offline queueing.",
+  "start_url": "register.php",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f9fc",
+  "theme_color": "#0a2f4f",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
