@@ -1,0 +1,54 @@
+
+.coastal-login-card { position: relative; z-index: 3; width: min(420px, calc(100% - 48px)); margin: 40px auto 96px; padding: 30px 32px 24px; border-radius: 22px; background: #fff; color: #0a2b51; box-shadow: 0 30px 80px #04243d59; scroll-margin-top: 100px; }
+@media (min-width: 1280px) {
+
+
+    .coastal-login-card { position: absolute; top: 50%; right: clamp(32px, 6vw, 120px); width: 400px; margin: 0; translate: 0 -50%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .coastal-login-card { animation: coastal-login-fade .9s .35s ease both; }
+    .coastal-login__error { animation: coastal-login-shake .5s cubic-bezier(.36, .07, .19, .97) both; }
+    @keyframes coastal-login-fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes coastal-login-shake { 10%, 90% { transform: translateX(-1px); } 20%, 80% { transform: translateX(2px); } 30%, 50%, 70% { transform: translateX(-4px); } 40%, 60% { transform: translateX(4px); } }
+}
+
+.coastal-login-card h2 { margin: 6px 0 6px; color: #072348; font-size: 38px; font-weight: 800; letter-spacing: -.045em; line-height: 1; }
+.coastal-login__sub { margin: 0 0 20px; color: #536f89; font-size: 15px; }
+.coastal-login__error { margin: 0 0 14px; padding: 10px 14px; border: 1px solid #fca5a5; border-radius: 10px; background: #fef2f2; color: #b91c1c; font-size: 14px; }
+
+.coastal-login__form label { display: block; margin: 0 0 6px; color: #072348; font-size: 14px; font-weight: 700; }
+.coastal-login__form input[type="text"], .coastal-login__form input[type="password"] { width: 100%; height: 48px; margin: 0 0 14px; padding: 0 16px; border: 1.5px solid #dbeaf3; border-radius: 12px; background: #f8fcff; color: #16324a; font: inherit; font-size: 15px; outline: none; transition: border-color .2s, box-shadow .2s; }
+.coastal-login__form input:focus { border-color: #0877b9; background: #fff; box-shadow: 0 0 0 3px #0877b91f; }
+.coastal-login__password { position: relative; }
+.coastal-login__password input { padding-right: 52px !important; }
+.coastal-login__password button { position: absolute; top: 0; right: 4px; width: 46px; height: 48px; border: 0; background: none; color: #0a2b51; cursor: pointer; }
+.coastal-login__password button[aria-pressed="true"] { color: #0877b9; }
+
+.coastal-login__row { display: flex; justify-content: flex-end; margin: -2px 0 14px; }
+.coastal-login__link, .coastal-login__foot a { padding: 0; border: 0; background: none; color: #0877b9; font: inherit; font-size: 14px; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.coastal-login__note { margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; background: #eaf6fd; color: #36556f; font-size: 13.5px; line-height: 1.5; }
+.coastal-login__submit { display: block; width: 100%; height: 48px; border: 0; border-radius: 12px; background: #0877b9; color: #fff; font: inherit; font-size: 16px; font-weight: 700; line-height: 48px; text-align: center; text-decoration: none; cursor: pointer; transition: background .2s, transform .2s, box-shadow .2s; }
+.coastal-login__submit:hover { background: #065f96; transform: translateY(-1px); box-shadow: 0 8px 20px #0877b940; }
+.coastal-login__foot { margin: 18px 0 0; color: #536f89; font-size: 14px; text-align: center; }
+.coastal-login__link:focus-visible, .coastal-login__foot a:focus-visible, .coastal-login__submit:focus-visible, .coastal-login__password button:focus-visible { outline: 2px solid #0877b9; outline-offset: 2px; }
+
+
+
+
+@media (max-width: 1279px) {
+    .coastal-hero {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        padding: 72px max(20px, 6vw) 120px;
+    }
+    .coastal-hero__content { max-width: none; }
+    .coastal-login-card {
+        width: 100%;
+        max-width: 440px;
+        margin: 36px auto 0;
+        padding: 24px 20px 20px;
+    }
+    .coastal-login-card h2 { font-size: 30px; }
+    .coastal-hero__scroll { display: none; }
+}

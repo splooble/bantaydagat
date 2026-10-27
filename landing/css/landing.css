@@ -1,0 +1,204 @@
+
+
+
+
+
+
+.coastal-page #why-it-matters, .coastal-page #in-action, .coastal-page #features { scroll-margin-top: 86px; }
+
+
+.coastal-hero { position: relative; overflow: hidden; }
+.coastal-hero__scroll { z-index: 2; bottom: 74px; }
+
+
+
+@media (min-width: 1280px) and (max-height: 820px) {
+    .coastal-hero { padding-top: 40px; padding-bottom: 100px; }
+    .coastal-hero h1 { font-size: clamp(2.6rem, 4.6vw, 4rem); }
+    .coastal-hero__intro { margin: 16px 0 20px; font-size: 1.08rem; }
+    .coastal-stats { margin-top: 26px; }
+}
+@media (min-width: 1280px) and (max-height: 680px) {
+    .coastal-hero h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); }
+    .coastal-stats { margin-top: 20px; }
+}
+.coastal-waves { position: absolute; right: 0; bottom: -1px; left: 0; z-index: 1; height: 64px; overflow: hidden; pointer-events: none; }
+.coastal-waves svg { position: absolute; bottom: 0; left: 0; width: 200%; height: 100%; }
+.coastal-waves__back { fill: #ffffff2e; stroke: none; }
+.coastal-waves__front { fill: #eaf8fe; stroke: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+    .coastal-waves__layer--back { animation: coastal-drift 26s linear infinite reverse; }
+    .coastal-waves__layer--front { animation: coastal-drift 17s linear infinite; }
+
+    .coastal-hero__content > * { animation: coastal-hero-in .9s cubic-bezier(.2, .8, .2, 1) both; }
+    .coastal-hero__content > :nth-child(2) { animation-delay: .08s; }
+    .coastal-hero__content > :nth-child(3) { animation-delay: .18s; }
+    .coastal-hero__content > :nth-child(4) { animation-delay: .28s; }
+    .coastal-hero__content > :nth-child(5) { animation-delay: .4s; }
+    .coastal-hero__scroll { animation: coastal-hero-in .9s .6s cubic-bezier(.2, .8, .2, 1) both; }
+
+    @keyframes coastal-drift { to { transform: translateX(-50%); } }
+    @keyframes coastal-hero-in { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+
+    .coastal-impact__stat.is-visible, .coastal-capability.is-visible { animation-delay: var(--reveal-delay, 0s); }
+}
+
+
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .coastal-page .coastal-header::after {
+            position: absolute; right: 0; bottom: -1px; left: 0; height: 3px;
+            background: linear-gradient(90deg, #0a84cc, #77e0ff);
+            content: ''; transform: scaleX(0); transform-origin: left;
+            animation: coastal-tide linear both; animation-timeline: scroll(root);
+        }
+        @keyframes coastal-tide { to { transform: scaleX(1); } }
+    }
+}
+
+
+.coastal-impact { padding-top: 104px; padding-bottom: 108px; background: #fff; }
+.coastal-impact__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; max-width: 1280px; margin: 46px auto 0; }
+.coastal-impact__stat { position: relative; padding: 30px 26px 28px; overflow: hidden; border: 1px solid #dbeaf3; border-radius: 18px; background: #f8fcff; }
+.coastal-impact__stat::before { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #0877b9, #77e0ff); content: ''; transform-origin: left; }
+
+.coastal-impact__grid.has-counters .coastal-impact__stat::before { transform: scaleX(0); }
+.coastal-impact__grid.is-counting .coastal-impact__stat::before { transform: scaleX(1); transition: transform 2.2s cubic-bezier(.16, 1, .3, 1) var(--reveal-delay, 0s); }
+.coastal-impact__value { margin: 0 0 14px; color: #072348; font-size: clamp(34px, 3vw, 46px); font-variant-numeric: tabular-nums; font-weight: 800; letter-spacing: -.045em; line-height: 1; white-space: nowrap; }
+.coastal-impact__stat h3 { margin: 0 0 6px; color: #0a2b51; font-size: 17px; font-weight: 800; letter-spacing: -.02em; }
+.coastal-impact__stat p:last-child { margin: 0; color: #536f89; font-size: 14px; line-height: 1.5; }
+.coastal-impact__local { display: grid; grid-template-columns: auto 1fr; gap: 6px 28px; max-width: 1280px; margin: 22px auto 0; padding: 26px 30px; border-left: 4px solid #0a86c8; border-radius: 14px; background: #eaf6fd; }
+.coastal-impact__local-label { grid-row: span 2; margin: 2px 0 0; color: #0677b9; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+.coastal-impact__local-text { margin: 0; color: #12345a; font-size: 18px; font-weight: 600; line-height: 1.55; }
+.coastal-impact__local figcaption { color: #4f6d88; font-size: 13px; }
+.coastal-impact__source { max-width: 1280px; margin: 18px auto 0; color: #6a8399; font-size: 12px; }
+
+
+.coastal-action { padding-top: 104px; padding-bottom: 112px; background: #fff; }
+.coastal-action__row { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(40px, 6vw, 96px); max-width: 1280px; margin: 52px auto 0; }
+.coastal-action__row--reverse { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); margin-top: 96px; }
+.coastal-action__kicker { margin: 0 0 12px; color: #0677b9; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.coastal-action__copy h3 { margin: 0; color: #072348; font-size: clamp(30px, 2.8vw, 42px); font-weight: 800; letter-spacing: -.045em; line-height: 1.1; }
+.coastal-action__copy > p:not(.coastal-action__kicker):not(.coastal-action__note) { max-width: 520px; margin: 18px 0 0; color: #486785; font-size: 17px; line-height: 1.65; }
+.coastal-action__points { display: grid; gap: 12px; margin: 26px 0 0; padding: 0; list-style: none; }
+.coastal-action__points li { position: relative; padding-left: 32px; color: #183c62; font-size: 15px; font-weight: 600; line-height: 1.5; }
+.coastal-action__points li::before { position: absolute; top: 1px; left: 0; display: grid; width: 21px; height: 21px; place-items: center; border-radius: 50%; background: #e3f6ff; color: #0677b9; content: '✓'; font-size: 12px; font-weight: 800; }
+.coastal-action__note { max-width: 520px; margin: 24px 0 0; padding-top: 18px; border-top: 1px solid #dceaf2; color: #6a8399; font-size: 13px; line-height: 1.55; }
+
+
+.coastal-waters { width: 100%; max-width: 540px; margin: 0; justify-self: center; }
+.coastal-waters__map { position: relative; overflow: hidden; border: 1px solid #cfe6f2; border-radius: 22px; background: #d9f0fb; box-shadow: 0 24px 50px #09466920; }
+.coastal-waters__map svg { display: block; width: 100%; height: auto; }
+.coastal-waters__sea { fill: #d9f0fb; stroke: none; }
+.coastal-waters__zone { fill: #1d9bdc1f; stroke: #0a86c8; stroke-width: 1.3; stroke-dasharray: 5 4; }
+.coastal-waters__land { fill: #f3f6ef; stroke: none; }
+.coastal-waters__shore { fill: none; stroke: #7aa9c2; stroke-width: 1.1; }
+.coastal-waters__town circle { fill: #072348; stroke: #fff; stroke-width: 1.5; }
+.coastal-waters__town text { fill: #072348; stroke: #f3f6ef; stroke-width: 3.5; font-size: 13px; font-weight: 800; letter-spacing: -.01em; paint-order: stroke; }
+.coastal-waters__boat circle { fill: #0f9b8e; stroke: #fff; stroke-width: 1.8; }
+.coastal-waters__boat .coastal-waters__halo { fill: #0f9b8e33; stroke: none; }
+.coastal-waters__vessel circle { fill: #f59e0b; stroke: #fff; stroke-width: 2; }
+.coastal-waters__track { stroke: #d97706; stroke-width: 1.4; stroke-dasharray: 2 5; opacity: .75; }
+.coastal-waters__intruder circle { fill: #f59e0b; stroke: #fff; stroke-width: 2; transition: fill .3s ease; }
+.coastal-waters__intruder .coastal-waters__pulse { fill: #f59e0b44; stroke: none; opacity: 0; }
+.coastal-waters.is-inside .coastal-waters__intruder circle { fill: #dc2626; }
+.coastal-waters.is-inside .coastal-waters__intruder .coastal-waters__pulse { fill: #dc262640; opacity: 1; }
+.coastal-waters__scale path { fill: none; stroke: #072348; stroke-width: 2; }
+.coastal-waters__scale text { fill: #072348; stroke: none; font-size: 12px; font-weight: 800; }
+
+.coastal-waters__alert { position: absolute; top: 16px; right: 16px; left: 16px; display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border: 1px solid #fecaca; border-left: 4px solid #dc2626; border-radius: 12px; background: #fffffff2; box-shadow: 0 12px 26px #7f1d1d1f; color: #3b0d0d; opacity: 0; transform: translateY(-10px); transition: opacity .35s ease, transform .35s ease; }
+.coastal-waters.is-inside .coastal-waters__alert { opacity: 1; transform: none; }
+.coastal-waters__alert-icon { display: grid; width: 24px; height: 24px; flex: none; place-items: center; border-radius: 50%; background: #dc2626; color: #fff; font-size: 14px; font-weight: 800; }
+.coastal-waters__alert strong { display: block; color: #7f1d1d; font-size: 14px; font-weight: 800; }
+.coastal-waters__alert span span { display: block; margin-top: 2px; color: #7a3b3b; font-size: 12px; }
+
+.coastal-waters figcaption { margin-top: 16px; }
+.coastal-waters__legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0; padding: 0; color: #2c4f70; font-size: 13px; font-weight: 600; list-style: none; }
+.coastal-waters__legend li { display: inline-flex; align-items: center; gap: 8px; }
+.coastal-waters__key { display: inline-block; width: 11px; height: 11px; border-radius: 50%; }
+.coastal-waters__key--boat { background: #0f9b8e; }
+.coastal-waters__key--vessel { background: #f59e0b; }
+.coastal-waters__key--flagged { background: #dc2626; }
+.coastal-waters__key--zone { width: 18px; height: 11px; border: 1.5px dashed #0a86c8; border-radius: 3px; background: #1d9bdc1f; }
+.coastal-waters figcaption p { margin: 10px 0 0; color: #6a8399; font-size: 12px; }
+.coastal-waters figcaption a { color: inherit; }
+
+@media (prefers-reduced-motion: no-preference) {
+    .coastal-waters__boat .coastal-waters__halo { transform-box: fill-box; transform-origin: center; animation: coastal-ping 2.8s ease-out var(--pulse-delay, 0s) infinite; }
+    .coastal-waters.is-inside .coastal-waters__intruder .coastal-waters__pulse { transform-box: fill-box; transform-origin: center; animation: coastal-ping 1.4s ease-out infinite; }
+    @keyframes coastal-ping { from { opacity: .9; transform: scale(.6); } to { opacity: 0; transform: scale(1.9); } }
+}
+
+
+.coastal-phone { justify-self: center; width: min(100%, 318px); padding: 11px; border-radius: 46px; background: linear-gradient(150deg, #13355e, #071c38); box-shadow: 0 30px 60px #0a2c5233, inset 0 0 0 1px #ffffff1f; }
+.coastal-phone__screen { position: relative; display: flex; min-height: 600px; flex-direction: column; align-items: center; overflow: hidden; padding: 46px 20px 22px; border-radius: 36px; background: linear-gradient(180deg, #f2faff, #fff 45%); }
+.coastal-phone__notch { position: absolute; top: 12px; left: 50%; width: 92px; height: 22px; border-radius: 14px; background: #071c38; transform: translateX(-50%); }
+.coastal-phone__heading { margin: 0 0 18px; color: #072348; font-size: 17px; font-weight: 800; letter-spacing: -.02em; }
+.coastal-phone__scanner { position: relative; display: grid; width: 196px; height: 196px; place-items: center; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px #d6e8f2, 0 10px 24px #0a4a7814; }
+.coastal-phone__scanner::before { position: absolute; inset: 10px; border: 3px solid #0a86c8; border-radius: 16px; content: ''; -webkit-mask: linear-gradient(#000 0 0) top left / 34px 34px no-repeat, linear-gradient(#000 0 0) top right / 34px 34px no-repeat, linear-gradient(#000 0 0) bottom left / 34px 34px no-repeat, linear-gradient(#000 0 0) bottom right / 34px 34px no-repeat; mask: linear-gradient(#000 0 0) top left / 34px 34px no-repeat, linear-gradient(#000 0 0) top right / 34px 34px no-repeat, linear-gradient(#000 0 0) bottom left / 34px 34px no-repeat, linear-gradient(#000 0 0) bottom right / 34px 34px no-repeat; }
+.coastal-phone__qr { width: 140px; height: 140px; }
+.coastal-phone__qr path { fill: #0b2343; stroke: none; }
+.coastal-phone__laser { position: absolute; top: 18px; right: 18px; left: 18px; height: 3px; border-radius: 2px; background: #ef4444; box-shadow: 0 0 12px 2px #ef444488; opacity: 0; }
+.coastal-phone__status { position: relative; width: 100%; height: 20px; margin: 16px 0 0; color: #0677b9; font-size: 13px; font-weight: 700; }
+.coastal-phone__status span { display: block; text-align: center; }
+.coastal-phone__status-scanning { position: absolute; inset: 0; opacity: 0; }
+.coastal-phone__result { position: absolute; right: 12px; bottom: 12px; left: 12px; padding: 18px; border: 1px solid #dbeaf3; border-radius: 22px; background: #fff; box-shadow: 0 -10px 30px #0a3c6a1a; }
+.coastal-phone__person { display: flex; align-items: center; gap: 12px; }
+.coastal-phone__avatar { display: grid; width: 42px; height: 42px; flex: none; place-items: center; border-radius: 50%; background: linear-gradient(140deg, #0a84cc, #0567a6); color: #fff; font-size: 14px; font-weight: 800; }
+.coastal-phone__person strong { display: block; color: #072348; font-size: 15px; font-weight: 800; }
+.coastal-phone__person span span { display: block; color: #58728b; font-size: 12px; }
+.coastal-phone__badge { display: inline-flex; margin: 14px 0 12px; padding: 6px 11px; border-radius: 999px; background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800; }
+.coastal-phone__result dl { display: grid; gap: 7px; margin: 0; }
+.coastal-phone__result dl div { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
+.coastal-phone__result dt { color: #6a8399; }
+.coastal-phone__result dd { margin: 0; color: #12345a; font-weight: 700; }
+.coastal-phone__sample { margin: 12px 0 0; color: #94a9bb; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+
+@media (prefers-reduced-motion: no-preference) {
+    .coastal-phone.is-animated .coastal-phone__laser { animation: coastal-scan 8s linear infinite; }
+    .coastal-phone.is-animated .coastal-phone__result { animation: coastal-result 8s cubic-bezier(.2, .8, .2, 1) infinite; }
+    .coastal-phone.is-animated .coastal-phone__status-scanning { animation: coastal-status-scanning 8s linear infinite; }
+    .coastal-phone.is-animated .coastal-phone__status-found { animation: coastal-status-found 8s linear infinite; }
+
+    @keyframes coastal-scan { 0% { opacity: 1; transform: translateY(0); } 13% { transform: translateY(156px); } 26% { opacity: 1; transform: translateY(0); } 29%, 100% { opacity: 0; transform: translateY(0); } }
+    @keyframes coastal-result { 0%, 30% { opacity: 0; transform: translateY(40px); } 37%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: translateY(40px); } }
+    @keyframes coastal-status-scanning { 0%, 29% { opacity: 1; } 31%, 100% { opacity: 0; } }
+    @keyframes coastal-status-found { 0%, 29% { opacity: 0; } 31%, 90% { opacity: 1; } 94%, 100% { opacity: 0; } }
+}
+
+
+.coastal-capabilities { padding-top: 104px; padding-bottom: 110px; background: #eef8fd; }
+.coastal-capabilities__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; max-width: 1280px; margin: 44px auto 0; }
+.coastal-capability { padding: 24px; border: 1px solid #d5e9f3; border-radius: 16px; background: #fff; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.coastal-capability:hover { border-color: #9bd8f4; box-shadow: 0 18px 34px #074b7814; transform: translateY(-5px); }
+.coastal-capability__icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 13px; background: #e3f6ff; color: #056eac; }
+.coastal-capability__icon svg { width: 25px; height: 25px; }
+.coastal-capability h3 { margin: 18px 0 8px; color: #09274c; font-size: 17px; font-weight: 800; letter-spacing: -.025em; }
+.coastal-capability p { margin: 0; color: #536f89; font-size: 14px; line-height: 1.55; }
+
+
+@media (max-width: 1050px) {
+    .coastal-impact__grid, .coastal-capabilities__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .coastal-action__row, .coastal-action__row--reverse { grid-template-columns: 1fr; gap: 40px; }
+    .coastal-action__row--reverse .coastal-phone { order: -1; }
+    .coastal-action__copy { max-width: 640px; }
+}
+
+@media (max-width: 760px) {
+    .coastal-impact, .coastal-action, .coastal-capabilities { padding-top: 76px; padding-bottom: 80px; }
+    .coastal-impact__grid { gap: 12px; margin-top: 32px; }
+    .coastal-impact__stat { padding: 24px 20px; }
+    .coastal-impact__local { grid-template-columns: 1fr; padding: 22px; }
+    .coastal-impact__local-text { font-size: 16px; }
+    .coastal-action__row { margin-top: 36px; }
+    .coastal-action__row--reverse { margin-top: 70px; }
+    .coastal-capabilities__grid { gap: 12px; margin-top: 32px; }
+    .coastal-waves { height: 42px; }
+}
+
+@media (max-width: 480px) {
+    .coastal-impact__grid, .coastal-capabilities__grid { grid-template-columns: 1fr; }
+    .coastal-impact__value { font-size: 38px; }
+}
